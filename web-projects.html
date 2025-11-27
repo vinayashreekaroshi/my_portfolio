@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Web Development Projects</title>
+  
+  <style>
+    /* ===== General Layout ===== */
+body {
+  background: #0c0c0f;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-align: center;
+  padding: 40px;
+}
+
+/* ===== Title Styling ===== */
+h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #c084ff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 12px rgba(192,132,255,0.4);
+}
+
+.subtitle {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* ===== Image Grid ===== */
+/* ===== Image Grid ===== */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Card container */
+.gallery .card {
+  width: 370px;      /* bigger card */
+  height: 350px;     /* fixed height for uniformity */
+  border-radius: 15px;
+  overflow: hidden;  /* ensures image stays inside card */
+  border: 2px solid #9b59ff;
+  box-shadow: 0 0 15px rgba(155, 89, 255, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+/* Image inside card */
+.gallery .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* fills card without stretching */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect */
+.gallery .card:hover img {
+  transform: scale(1.07);
+  box-shadow: 0 0 25px rgba(155, 89, 255, 0.7);
+}
+
+/* ===== Back Button ===== */
+.back-btn {
+  display: inline-block;
+  margin-top: 50px;
+  padding: 10px 20px;
+  border: 1px solid #c084ff;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #c084ff;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #c084ff;
+  color: #0c0c0f;
+  box-shadow: 0 0 15px rgba(192,132,255,0.6);
+  transform: translateY(-3px);
+}
+/* ===== Description Box Below Gallery ===== */
+.project-description {
+  max-width: 800px;
+  margin: 40px auto;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #e6caff;
+  background: rgba(255,255,255,0.04);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #b300ff;
+  box-shadow: 0 0 15px rgba(179,0,255,0.3);
+  text-shadow: 0 0 6px rgba(179,0,255,0.4);
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Web Development Projects 💻</h1>
+    <p class="subtitle">A showcase of my internship tasks and personal web development work.</p>
+  </header>
+
+  <div class="gallery">
+  <div class="card">
+    <img src="image1.jpeg" alt="Project Screenshot">
+  </div>
+  <div class="card">
+    <img src="image2.jpeg" alt="Project Screenshot">
+  </div>
+  <div class="card">
+    <img src="image3.jpeg" alt="Project Screenshot">
+  </div>
+  <div class="card">
+    <img src="image4.png" alt="Project Screenshot">
+  </div>
+</div>
+<p class="project-description">
+These projects reflect my journey in web development, including responsive UI designs, dashboards, and dynamic web workflows. The first two project blocks showcase responsive grids that adjust seamlessly to any screen size, ensuring a consistent layout across devices. The last two projects highlight navigation bars that transform into hamburger menus on smaller screens, enhancing usability on mobile devices. Created using HTML, CSS, JavaScript, and frameworks like Node.js and Bootstrap, these projects demonstrate practical and creative frontend development skills with clean interfaces and user-focused design.
+</p>
+
+
+  <a href="index.html#projects" class="back-btn">⬅ Back to Projects</a>
+
+</body>
+</html>

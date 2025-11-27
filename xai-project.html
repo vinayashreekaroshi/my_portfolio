@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XAI (Explainable AI) Projects</title>
+
+  <style>
+/* ===== Global Styling ===== */
+body {
+  background: #0d001a;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-align: center;
+  padding: 40px;
+}
+
+/* ===== Title ===== */
+h1 {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #c77dff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px rgba(199,125,255,0.6);
+}
+
+.subtitle {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* ===== Image Card Grid ===== */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.card {
+  width: 350px;
+  height: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #ff87ff;
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 15px rgba(255,135,255,0.4);
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 25px rgba(255,135,255,0.9);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.35s ease;
+}
+
+.card img:hover {
+  transform: scale(1.09);
+}
+
+/* ===== Back Button ===== */
+.back-btn {
+  display: inline-block;
+  margin-top: 50px;
+  padding: 12px 25px;
+  border-radius: 10px;
+  border: 2px solid #b300ff;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #d9afff;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #b300ff;
+  color: #0d001a;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(179,0,255,0.7);
+}
+/* ===== Description Box Below Gallery ===== */
+.project-description {
+  max-width: 800px;
+  margin: 40px auto;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #e6caff;
+  background: rgba(255,255,255,0.04);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #b300ff;
+  box-shadow: 0 0 15px rgba(179,0,255,0.3);
+  text-shadow: 0 0 6px rgba(179,0,255,0.4);
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>XAI Projects 🧠✨</h1>
+  <p class="subtitle">Explainable AI visualizations, model interpretations, and transparency techniques.</p>
+</header>
+
+<!-- Image Cards -->
+<div class="gallery">
+  
+  <div class="card">
+    <img src="image111.jpeg" alt="XAI-based report">
+  </div>
+
+  <div class="card">
+    <img src="image222.jpeg" alt="XAI-based report">
+  </div>
+
+  <div class="card">
+    <img src="image333.jpeg" alt="XAI-based report">
+  </div>
+
+  <div class="card">
+    <img src="image444.jpeg" alt="XAI-based report">
+  </div>
+
+</div>
+<p class="project-description">
+  This project focuses on traffic violation detection using Artificial Intelligence and computer vision. 
+  The model is trained to identify real-time violations such as <strong>helmetless riding</strong> and 
+  <strong>triple riding</strong> using object detection techniques. To make the system transparent and explainable, 
+  <strong>Grad-CAM visualizations</strong> are used to highlight the exact regions of the image the model focuses on while 
+  making predictions. This helps ensure credibility and explainability, especially in safety-critical applications like 
+  smart traffic monitoring and law enforcement automation.
+</p>
+
+<p class="project-description">
+  The system is built using <strong>YOLOv8</strong>, <strong>TensorFlow/Keras</strong>, <strong>OpenCV</strong>, and Python, and can be 
+  further extended for real-time CCTV surveillance or integration into Smart City platforms.
+</p>
+
+<a href="index.html#projects" class="back-btn">⬅ Back to Portfolio</a>
+
+</body>
+</html>

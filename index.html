@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vinnie | Portfolio</title>
+<style>
+body {
+  margin: 0;
+  font-family: arial, sans-serif;
+  background: #0d001a;
+  color: white;
+  overflow-x: hidden;
+  scroll-behavior: smooth; /* smooth scroll */
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 50px;
+  background: rgba(20, 0, 40, 0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #8f00ff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo{
+    height:45px;
+    cursor:pointer;
+    filter:drop-shadow(0 0 10px #b300ff);
+    transition:0.3s ease-in-out; 
+}
+.logo:hover{
+    transform:scale(1.08);
+    filter:drop-shadow(0 0 20px #ff4fff);
+}
+nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+nav a {
+  text-decoration: none;
+  color: #d7b8ff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+nav a:hover {
+  color: #b300ff;
+  text-shadow: 0 0 10px purple;
+}
+
+/* Profile Image */
+.profile-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.profile-img {
+  width: 260px;
+  height: auto;
+  border-radius: 22px;
+  object-fit: cover;
+  border: 3px solid #b300ff;
+  box-shadow: 0 0 25px #b300ff;
+  transition: .3s;
+}
+.profile-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px #ff4fff;
+}
+/* Sections */
+section {
+  text-align: center;
+  padding: 10px 10px 10px;
+  max-width: 100%;
+  margin: auto;
+  min-height: 100vh; /* full viewport height */
+}
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+section p {
+  font-size: 1.2rem;
+  opacity: 0.85;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.cards {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+  margin-top:20px;
+}
+.card {
+  background:#120022;
+  padding:20px;
+  border-radius:15px;
+  width:250px;
+  box-shadow:0 0 15px #b300ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow:0 0 25px #ff4fff;
+}
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 30px;
+  background: #b300ff;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 15px #b300ff;
+}
+.btn:hover {
+  background: white;
+  color: #2b0050;
+  transform: scale(1.07);
+  box-shadow: 0 0 25px #ff4fff;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #b27cff;
+  font-size: 0.9rem;
+  background:#120022;
+}
+#about img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#about img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px #d46cff;
+}
+
+.tagline { font-size: 1.1rem; color: #ffd6ff; margin-top: 15px; opacity: 0.9; }
+#home {
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding: 60px 20px;
+}
+/* Project Section Background (Optional matching theme) */
+#projects {
+  text-align: center;
+  padding: 50px 20px;
+}
+.project-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  max-width: 700px;
+  margin-inline: auto;
+}
+.project-list li {
+  margin: 18px 0;
+  font-size: 1.2rem;
+}
+.project-list a {
+  text-decoration: none;
+  color: #ffbfff;
+  transition: 0.3s;
+  font-weight: 500;
+}
+.project-list a:hover {
+  color: white;
+  text-shadow: 0 0 10px #bd00ff;
+}
+/* CONTACT SECTION */
+.contact {
+  padding: 60px 20px;
+  background: #0c0c0f;
+  color: white;
+  text-align: center;
+}
+.contact h2 {
+  font-size: 1.5rem;
+  color: #c084ff;
+  margin-bottom:5px;
+}
+.contact .sub {
+  opacity: 0.7;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+/* FLEX LAYOUT */
+.contact-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-start;
+  gap: 90px;
+  max-width: 1000px;
+  margin: auto;
+}
+/* LEFT (FORM) */
+.left {
+  width: 45%;
+  text-align: left;
+}
+.left h3 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+.left label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+.left input, .left textarea {
+  width: 100%;
+  padding: 10px;
+  background: #1b1b22;
+  border: 1px solid #444;
+  border-radius: 5px;
+  color: white;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+.left textarea {
+  height: 100px;
+}
+/* BUTTON */
+.contact-btn {
+  width: 100%;
+  background: #c084ff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+.contact-btn:hover {
+  background:white;
+  color:black;
+}
+/* RIGHT INFO */
+.right {
+  width: 45%;
+  text-align: left;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.right h3 {
+  margin: 12px 0 5px;
+  font-size: 1.1rem;
+}
+.right a {
+  color: #c084ff;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.right a:hover {
+  text-decoration: underline;
+}
+/* MOBILE FIX */
+@media (max-width: 900px) {
+  .contact-wrapper {
+    flex-direction: column;
+    gap:20px;
+  }
+
+  .left, .right {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<nav>
+<div style="display:flex; align-items:center; gap:10px;">
+    <img src="https://static.vecteezy.com/system/resources/previews/054/606/232/non_2x/cute-pink-robot-with-heart-balloon-illustration-vector.jpg" alt="logo" class="logo"/>
+    <span style="color:#ffd6ff; font-size:0.9rem; font-weight:500;">Code & Creativity</span>
+  </div>
+<ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#skills">Skills</a></li>
+  <li><a href="#projects">Projects</a></li>
+  <li><a href="#resume">Resume</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+  <div class="profile-container">
+    <img src="https://thumbs.dreamstime.com/b/cute-white-robot-waving-hello-speech-bubbles-dark-purple-gradient-background-illustration-friendly-waves-surrounded-394554882.jpg" alt="profile" class="profile-img">
+  </div>
+  <h1>Hey, I'm <span>Vinayashree 👋</span></h1>
+  <p>I am a passionate web developer who appreciates artistic interactive designs and easy user interfaces.<br>To gain an understanding of a data-driven insight, I am studying data analysis and visualization through Excel and Python along with development. Learning and growing one step a day 💜.</p>
+  <p class="tagline">Web Developer • UI/UX Learner • Data Analyst 💜</p>
+  <a href="#about" class="btn">Learn More</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="display:flex; align-items:center; justify-content:center; padding:50px 20px; gap:60px; max-width:1200px; margin:auto; flex-wrap:wrap;">
+  
+  <!-- Profile Image -->
+  <div style="flex:1; display:flex; justify-content:center;">
+    <img src="formal.jpg" 
+         alt="Vinayashree"
+         style="width:550px; max-width:115%; height:400px; border-radius:28px; border:4px solid #b300ff; box-shadow:0 0 35px rgba(179,0,255,0.8); object-fit:cover;">
+  </div>
+
+  <!-- About Me Text -->
+  <div style="flex:2; color:white;">
+    <h2 style="font-size:2.5rem; margin-bottom:20px; text-shadow:0 0 15px purple;">About Me</h2>
+    <p style="display: flex; align-items: flex-start; margin-bottom: 10px;width:95%;">
+      Hello! I’m Vinayashree Karoshi, a pre-final year Engineering student in CSE (AIML). I am passionate about web development, data analysis, and building meaningful digital experiences. With a curious mindset and a love for problem-solving, I continuously work on improving my skills and exploring new technologies.
+    </p>
+    <p style="display: flex; align-items: flex-start; margin-bottom: 10px;width:92%;">
+      Here’s my background and experiences:
+    </p>
+    <div style="display: flex; justify-content: center;">
+    <ul style="list-style: none; padding: 0; margin: 0;font-size: 1.2rem; line-height: 1.7;width: 85%;text-align:left; ">
+    <li style="display: flex; align-items: flex-start; margin-bottom: 12px;">
+      <span style="flex-shrink: 0; margin-right: 10px; color: #b300ff;">•</span>
+      <span>I completed my internship as <strong>Web Developer</strong> at <strong>Cognifyz Technologies</strong>.</span>
+    </li>
+
+    <li style="display: flex; align-items: flex-start; margin-bottom: 12px;">
+      <span style="flex-shrink: 0; margin-right: 10px; color: #b300ff;">•</span>
+      <span>I am currently doing an internship as a <strong>Web Developer</strong> at <strong>Codsoft</strong>.</span>
+    </li>
+
+    <li style="display: flex; align-items: flex-start; margin-bottom: 12px;">
+      <span style="flex-shrink: 0; margin-right: 10px; color: #b300ff;">•</span>
+      <span>Exploring web development while also building strong data analysis and visualization skills using Python, Excel, Tableau and Power BI.</span>
+    </li>
+
+    <li style="display: flex; align-items: flex-start;">
+      <span style="flex-shrink: 0; margin-right: 10px; color: #b300ff;">•</span>
+      <span>Apart from academics, I enjoy dancing, skating, and travelling — they help me stay creative, active, and curious about the world.</span>
+    </li>
+  </ul>
+</div>
+  <a href="#skills" class="btn" style="margin-top:20px; display:inline-block; padding:12px 25px; background:#b300ff; color:white; border-radius:6px; text-decoration:none; box-shadow:0 0 15px #b300ff;">View Skills</a>
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills" style="padding:30px 10px; scroll-margin-top:50px;">
+  <h2 style="text-align:center; margin-bottom:5px;">My Skills</h2>
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; max-width:1200px; margin:auto;">
+        <!-- Left Column: Technical Skills -->
+    <div style="flex:1; min-width:250px;">
+      <h3 style="color:#ffd6ff; text-align:center; margin-bottom:20px;">Technical Skills</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:15px; justify-content:center;">
+        <div class="card" style="width:130px; text-align:center; padding:10px;">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML CSS" style="width:60px; height:60px; margin-bottom:8px;">
+          <div style="font-weight:bold; font-size:0.8rem;">HTML & CSS</div>
+        </div>
+        <div class="card" style="width:130px; text-align:center; padding:10px;">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript" style="width:60px; height:60px; margin-bottom:8px;">
+          <div style="font-weight:bold; font-size:0.8rem;">JavaScript</div>
+        </div>
+        <div class="card" style="width:130px; text-align:center; padding:10px;">
+          <img src="https://cdn-icons-png.flaticon.com/512/1822/1822899.png" alt="Python" style="width:60px; height:60px; margin-bottom:8px;">
+          <div style="font-weight:bold; font-size:0.8rem;">Python</div>
+        </div>
+        <div class="card" style="width:130px; text-align:center; padding:10px;">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732220.png" alt="Excel" style="width:60px; height:60px; margin-bottom:8px;">
+          <div style="font-weight:bold; font-size:0.8rem;">Excel</div>
+        </div>
+        <div class="card" style="width:130px; text-align:center; padding:10px;">
+          <img src="data.png" alt="Data Analysis" style="width:60px; height:60px; margin-bottom:8px;">
+          <div style="font-weight:bold; font-size:0.8rem;">Data Analysis</div>
+        </div>
+        <div class="card" style="width:130px; text-align:center; padding:10px;">
+          <img src="Tableau.png" alt="Tableau" style="width:60px; height:60px; margin-bottom:8px; object-fit:contain;">
+          <div style="font-weight:bold; font-size:0.8rem;">Tableau</div>
+        </div>
+        <div class="card" style="width:130px; text-align:center; padding:10px;">
+          <img src="power-bi.png" alt="Power BI" style="width:60px; height:60px; margin-bottom:8px; object-fit:contain;">
+          <div style="font-weight:bold; font-size:0.8rem;">Power BI</div>
+        </div>
+         <div class="card" style="width:130px; text-align:center; padding:10px;">
+          <img src="c-and-c++.png" alt="C C++" style="width:60px; height:60px; margin-bottom:8px;">
+          <div style="font-weight:bold; font-size:0.8rem;">C/C++</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Soft Skills -->
+    <div style="flex:1; min-width:250px;">
+      <h3 style="color:#ffd6ff; text-align:center; margin-bottom:20px;">Soft Skills</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:15px; justify-content:center;">
+        <div class="card" style="width:130px; text-align:center; padding:10px;">
+          <img src="communication.jpg" 
+     style="width:60px; height:60px; margin-bottom:8px; filter: invert(1);" alt="Talking">
+          <div style="font-weight:bold; font-size:0.8rem;">Communication</div>
+        </div>
+        <div class="card" style="width:130px; text-align:center; padding:10px;">
+          <img src="https://cdn-icons-png.flaticon.com/512/2331/2331940.png" alt="Teamwork" style="width:60px; height:60px; margin-bottom:8px;">
+          <div style="font-weight:bold; font-size:0.8rem;">Teamwork</div>
+        </div>
+        <div class="card" style="width:130px; text-align:center; padding:10px;">
+          <img src="problem-solving.jpg" style="width:60px; height:60px; margin-bottom:8px;" alt="Problem Solving">
+          <div style="font-weight:bold; font-size:0.8rem;">Problem Solving</div>
+        </div>
+        <div class="card" style="width:130px; text-align:center; padding:10px;">
+          <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Creativity" style="width:60px; height:60px; margin-bottom:8px;">
+          <div style="font-weight:bold; font-size:0.8rem;">Creativity</div>
+        </div>
+        <div class="card" style="width:130px; text-align:center; padding:10px;">
+          <img src="time.png" alt="Time Management" style="width:60px; height:60px; margin-bottom:8px;">
+          <div style="font-weight:bold; font-size:0.8rem;">Time Management</div>
+        </div>
+        <div class="card" style="width:130px; text-align:center; padding:10px;">
+          <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="Adaptability" style="width:60px; height:60px; margin-bottom:8px;">
+          <div style="font-weight:bold; font-size:0.8rem;">Adaptability</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#projects" class="btn" style="margin-top:20px; display:inline-block; padding:12px 25px; background:#b300ff; color:white; border-radius:6px; text-decoration:none; box-shadow:0 0 15px #b300ff;">Explore Projects</a>
+  <br>
+  <br>
+  <br>
+  <br>
+
+<!-- PROJECTS -->
+<section id="projects" style="text-align:center; padding:50px 20px;">
+  <h2 style="margin-top:100px;">My Projects</h2>
+  <div class="cards" style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-bottom:30px;">
+    <a href="web-projects.html" target="_blank" class="card" style="text-decoration:none; color:white; width:280px; padding:20px; background:#222; border-radius:12px;">
+      <h3 style="margin-bottom:10px;">Web development projects</h3>
+      <p style="font-size:0.9rem; opacity:0.8;">A collection of my frontend web development projects, showcasing responsive layouts, UI design, and functional applications.</p>
+    </a>
+    <a href="data-analysis.html" target="_blank" class="card" style="text-decoration:none; color:white; width:280px; padding:20px; background:#222; border-radius:12px;">
+      <h3 style="margin-bottom:10px;">Data analysis projects</h3>
+      <p style="font-size:0.9rem; opacity:0.8;">Showcasing the analysis of datasets, identify patterns, and create clear dashboards to support data-driven decisions.</p>
+    </a>
+    <a href="xai-project.html" target="_blank" class="card" style="text-decoration:none; color:white; width:280px; padding:20px; background:#222; border-radius:12px;">
+      <h3 style="margin-bottom:10px;">XAI-based traffic violation detection</h3>
+      <p style="font-size:0.9rem; opacity:0.8;">Explainable AI model with Grad-CAM visualizations for traffic violation detection.</p>
+    </a>
+  </div>
+  <!-- Button now perfectly aligned below cards -->
+  <a href="#resume" class="btn" style="display:inline-block; padding:12px 25px; background:#b300ff; color:white; border-radius:6px; text-decoration:none; box-shadow:0 0 15px #b300ff;">
+  My Resume
+  </a>
+</section>
+
+<!-- RESUME -->
+<section id="resume" style="padding:60px 20px; text-align:center;">
+  <h2 style="font-size:2.2rem; color:white; margin-bottom:30px; text-shadow:0 0 15px #b300ff;">Resume</h2>
+  <!-- Resume Preview Box -->
+  <div style="max-width:750px; margin:auto; background:rgba(255, 255, 255, 0.623); padding:40px; border-radius:12px; box-shadow:0 0 25px rgba(179,0,255,0.4); text-align:left; position:relative;">
+    <!-- Photo -->
+    <img src="formal.jpg" alt="Vinayashree" 
+         style="width:100px; height:100px; border-radius:50%; border:3px solid #b300ff; position:absolute; top:20px; left:20px; object-fit:cover; box-shadow:0 0 15px #ff4fff;">
+    <!-- Name and Title -->
+    <div style="margin-left:110px;">
+      <h3 style="margin-bottom:10px; color:#333;">👩‍💻 Vinayashree Karoshi</h3>
+      <p style="color:#555; margin-bottom:25px;">Web Developer | Data Analyst | ML Enthusiast</p>
+    </div>
+    <!-- Skills Section -->
+    <h4 style="color:#b300ff; margin-bottom:10px;">📌 Skills</h4>
+    <strong style="color:#333;">Technical Skills:</strong>
+    <ul style="margin-bottom:20px; color:#444; line-height:1.6;">
+      <li>HTML, CSS, JavaScript</li>
+      <li>Python (Pandas, NumPy, Matplotlib, ML basics)</li>
+      <li>MySQL • Excel • Dashboard development</li>
+      <li>Explainable AI (Grad-CAM)</li>
+    </ul>
+    <strong style="color:#333;">Soft Skills:</strong>
+    <ul style="margin-bottom:20px; color:#444; line-height:1.6;">
+      <li>Team Collaboration</li>
+      <li>Time Management</li>
+      <li>Problem Solving</li>
+      <li>Adaptability & Self-learning</li>
+    </ul>
+    <strong style="color:#333;">Languages Spoken:</strong>
+    <p style="color:#444; margin-bottom:25px; line-height:1.6;">
+      Kannada · English · Hindi · Marathi
+    </p>
+    <!-- Projects -->
+    <h4 style="color:#b300ff; margin-bottom:5px;">📌 Projects</h4>
+    <ul style="margin-bottom:25px; color:#444; line-height:1.6;">
+      <li>🎨 Web Development Projects – Responsive UI & portfolio pages</li>
+      <li>📊 Data Analysis – Dataset exploration & dashboard building</li>
+      <li>🚦 XAI Traffic Violation Detection – Grad-CAM-based interpretability</li>
+    </ul>
+    <!-- Education -->
+    <h4 style="color:#b300ff; margin-bottom:5px;">📌 Education</h4>
+    <p style="color:#444; line-height:1.6;">
+      B.E. Computer Science (AIML)<br>
+      Jain College of Engineering & Research
+    </p>
+  </div>
+  <!-- Buttons -->
+  <div style="margin-top:30px;">
+    <a href="resume.pdf" download="Vinayashree_Resume.pdf" 
+       class="btn" 
+       style="display:inline-block; margin:10px; padding:10px 22px; background:#b300ff; color:white; border-radius:6px; text-decoration:none; box-shadow:0 0 15px #b300ff; font-size:15px; transition:0.3s;">
+       ⬇ Download Resume
+    </a>
+    <a href="#contact" 
+       class="btn" 
+       style="display:inline-block; margin:10px; padding:10px 22px; background:#b300ff; color:white; border-radius:6px; text-decoration:none; box-shadow:0 0 15px #b300ff; font-size:15px; transition:0.3s;">
+       Contact Me
+    </a>
+  </div>
+</section>
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2>Contact Me</h2>
+  <p class="sub">I’d love to hear from you ✨</p>
+  <div class="contact-wrapper">
+    <!-- LEFT (FORM) -->
+    <form class="left">
+      <h3>Send a Message</h3>
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter your name" required>
+
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email" required>
+
+      <label>Phone</label>
+      <input type="tel" placeholder="Enter your phone number">
+
+      <label>Message</label>
+      <textarea placeholder="Write your message..." required></textarea>
+
+      <button class="btn">Submit</button>
+    </form>
+    <!-- RIGHT (INFO) -->
+    <div class="right">
+      <h3>My Details</h3>
+      <p><strong>Name:</strong> Vinayashree Karoshi</p>
+      <p><strong>Email:</strong> vinayashreekaroshi@gmail.com</p>
+      <p><strong>Phone:</strong> +919874563210</p>
+      <p><strong>Location:</strong> Belagavi, Karnataka 🇮🇳</p>
+         
+     <h3>Social Links</h3>
+<div style="display:flex; gap:10px; margin-top:10px; flex-wrap:wrap;">
+  <a href="#" style="text-decoration:none; color:white;">LinkedIn</a> |
+  <a href="#" style="text-decoration:none; color:white;">GitHub</a> |
+  <a href="mailto:vinayashreekaroshi@gmail.com" style="text-decoration:none; color:white;">Email Me</a>
+</div>
+    </div>
+  </div>
+</section>
+<a href="#home" class="btn" style="display:inline-block; margin:10px; padding:12px 25px; background:#b300ff; color:white; border-radius:6px; text-decoration:none; box-shadow:0 0 15px #b300ff;">
+      ⬆ Back to Top
+    </a>
+<footer>© 2025 Vinayashree | All Rights Reserved</footer>
+</body>
+</html>
